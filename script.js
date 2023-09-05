@@ -7,6 +7,7 @@ const button = document.querySelector('button');
 button.addEventListener('click', e =>{
     e.preventDefault();
     checkInput();
+    console.log("Form Submitted!")
 });
 
 function checkInput(){
@@ -26,7 +27,8 @@ function checkInput(){
     else setSuccess(password);
 
     if(!password2Val) setError(password2, 'Confirm Password cannot be Empty!');
-    else if(passwordVal !== password2Val) setError(password2, 'Passwords doesnot match!') 
+    else if(passwordVal !== password2Val) setError(password2, 'Passwords doesnot match!');
+    else if(!checkPass(passwordVal)) setError(password2, 'Password doesnot meet the Requirement!');
     else setSuccess(password2);
 }
 
