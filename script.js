@@ -3,14 +3,16 @@ const email = document.getElementById('Email');
 const password = document.getElementById('Password');
 const password2 = document.getElementById('Password2');
 const button = document.querySelector('button');
+const div = document.querySelectorAll('div');
 
 button.addEventListener('click', e =>{
     e.preventDefault();
     checkInput();
-    console.log("Form Submitted!")
 });
 
 function checkInput(){
+    var isValid = true;
+
     //removing any white space
     const usernameVal = username.value.trim();
     const emailVal = email.value.trim();
@@ -18,23 +20,42 @@ function checkInput(){
     const password2Val = password2.value.trim();
 
     //username validation
-    (!usernameVal) ? setError(username, 'Username cannot be Empty!') : setSuccess(username);
+    if(!usernameVal){
+        setError(username, 'Username cannot be Empty!');
+        isValid = false;
+    }else setSuccess(username);
     
     //email validation
-    if(!emailVal) setError(email, 'Email cannot be Empty!');
-    else if (!checkEmail(emailVal)) setError(email, 'Invalid Email!');
-    else setSuccess(email);
+    if(!emailVal){
+        setError(email, 'Email cannot be Empty!'); 
+        isValid = false;
+    }else if (!checkEmail(emailVal)) {
+        setError(email, 'Invalid Email!'); 
+        isValid = false;
+    }else setSuccess(email);
     
     //password validation
-    if(!passwordVal) setError(password, 'Password cannot be Empty!');
-    else if(!checkPass(passwordVal)) setError(password, 'Password doesnot meet the Requirement!') 
-    else setSuccess(password);
+    if(!passwordVal){ 
+        setError(password, 'Password cannot be Empty!'); 
+        isValid = false;
+    }else if(!checkPass(passwordVal)) { 
+        setError(password, 'Password doesnot meet the Requirement!'); 
+        isValid = false;
+    }else setSuccess(password);
 
     //confirm password validation
-    if(!password2Val) setError(password2, 'Confirm Password cannot be Empty!');
-    else if(passwordVal !== password2Val) setError(password2, 'Passwords doesnot match!');
-    else if(!checkPass(passwordVal)) setError(password2, 'Password doesnot meet the Requirement!');
-    else setSuccess(password2);
+    if(!password2Val){ 
+        setError(password2, 'Confirm Password cannot be Empty!'); 
+        isValid = false;
+    }else if(passwordVal !== password2Val){ 
+        setError(password2, 'Passwords doesnot match!'); 
+        isValid = false;
+    }else if(!checkPass(passwordVal)){ 
+        setError(password2, 'Password doesnot meet the Requirement!'); 
+        isValid = false;
+    }else setSuccess(password2);
+
+    if(isValid) console.log("Form Submitted!");
 }
 
 function setError(input, msg){
@@ -43,6 +64,7 @@ function setError(input, msg){
     small.innerText = msg;
     small.style.display = 'inline';
     formControl.className = 'form-control error';
+
 }
 
 function setSuccess(input){
