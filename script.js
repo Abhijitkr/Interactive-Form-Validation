@@ -50,9 +50,6 @@ function checkInput(){
     }else if(passwordVal !== password2Val){ 
         setError(password2, 'Passwords doesnot match!'); 
         isValid = false;
-    }else if(!checkPass(passwordVal)){ 
-        setError(password2, 'Password doesnot meet the Requirement!'); 
-        isValid = false;
     }else setSuccess(password2);
 
     if(isValid) console.log("Form Submitted!");
