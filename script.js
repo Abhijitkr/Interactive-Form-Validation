@@ -19,7 +19,7 @@ function checkInput(){
     (!usernameVal) ? setError(username, 'Username cannot be Empty!') : setSuccess(username);
     
     if(!emailVal) setError(email, 'Email cannot be Empty!');
-    else if (!checkEmail(emailVal)) { setError(email, 'Invalid Email!');}
+    else if (!checkEmail(emailVal)) setError(email, 'Invalid Email!');
     else setSuccess(email);
     
     if(!passwordVal) setError(password, 'Password cannot be Empty!');
@@ -48,7 +48,8 @@ function setSuccess(input){
 }
 
 function checkEmail(val){
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val);
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    .test(val);
 }
 
 function checkPass(val){
