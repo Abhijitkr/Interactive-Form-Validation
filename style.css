@@ -61,6 +61,7 @@ form input[type="submit"]{
 
 .form-control{
     position: relative;
+    margin-bottom: 8px;
 }
 
 form i{
@@ -78,5 +79,9 @@ form i{
 .form-control.error i.fa-exclamation-circle{
     visibility: visible;
     color: red;
+}
 
+.form-control small{
+    display: none;
+    color: red;
 }
