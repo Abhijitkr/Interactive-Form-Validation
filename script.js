@@ -11,21 +11,26 @@ button.addEventListener('click', e =>{
 });
 
 function checkInput(){
+    //removing any white space
     const usernameVal = username.value.trim();
     const emailVal = email.value.trim();
     const passwordVal = password.value.trim();
     const password2Val = password2.value.trim();
 
+    //username validation
     (!usernameVal) ? setError(username, 'Username cannot be Empty!') : setSuccess(username);
     
+    //email validation
     if(!emailVal) setError(email, 'Email cannot be Empty!');
     else if (!checkEmail(emailVal)) setError(email, 'Invalid Email!');
     else setSuccess(email);
     
+    //password validation
     if(!passwordVal) setError(password, 'Password cannot be Empty!');
     else if(!checkPass(passwordVal)) setError(password, 'Password doesnot meet the Requirement!') 
     else setSuccess(password);
 
+    //confirm password validation
     if(!password2Val) setError(password2, 'Confirm Password cannot be Empty!');
     else if(passwordVal !== password2Val) setError(password2, 'Passwords doesnot match!');
     else if(!checkPass(passwordVal)) setError(password2, 'Password doesnot meet the Requirement!');
