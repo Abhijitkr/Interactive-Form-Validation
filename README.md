@@ -87,7 +87,7 @@ You can access the live version of this project by following this [link](https:/
 
 ## YouTube Video
 
-Watch a video demonstration of this interactive form validation web application on YouTube by clicking [here](https://www.youtube.com/watch?v=yourvideoid).
+Watch a video demonstration of this interactive form validation web application on YouTube by clicking [here](https://youtu.be/1OgmEHMIirI).
 
 ---
 
