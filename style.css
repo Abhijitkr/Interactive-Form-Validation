@@ -40,6 +40,15 @@ form input:hover, form input:focus{
     transition: transform 1s ease-in-out;
 }
 
+.form-control.success input{
+    border: 2px solid green;
+}
+
+.form-control.error input{
+    border: 2px solid red;
+}
+
+
 form input[type="submit"]{
     height: 40px;
     background-color: #6491c9;
@@ -48,4 +57,26 @@ form input[type="submit"]{
     cursor: pointer;
     font-size: large;
     border-radius: 5px;
+}
+
+.form-control{
+    position: relative;
+}
+
+form i{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-control.success i.fa-check-circle{
+    visibility: visible;
+    color: green;
+}
+
+.form-control.error i.fa-exclamation-circle{
+    visibility: visible;
+    color: red;
+
 }
